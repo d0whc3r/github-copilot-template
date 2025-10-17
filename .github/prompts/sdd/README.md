@@ -106,17 +106,18 @@ Spec-driven development is an iterative methodology that transforms rough featur
 - Maintains requirement traceability
 - Focuses on implementation details
 
-#### `/sdd:refactor`
+#### `/sdd:implement`
 
-**Purpose:** Improve and enhance existing spec documents
-**Input:** Feature name and improvement focus
-**Output:** `docs/specs/{feature_name}/refactor-report.md`
+**Purpose:** Execute and track individual implementation tasks for completed SDD features
+**Input:** Feature name that has completed the full SDD workflow
+**Output:** Implemented code changes, updated tasks.md with completion status
 **Benefits:**
 
-- Continuously improves spec quality
-- Enhances clarity and consistency
-- Strengthens cross-document relationships
-- Enables iterative refinement
+- Executes one task at a time with full SDD context
+- Automatically marks tasks as in progress and completed
+- Uses all SDD documents for proper implementation
+- Ensures implementation quality matches specifications
+- Provides clear progress tracking and completion announcements
 
 ## Recommended Workflow
 
@@ -130,18 +131,22 @@ graph TD
     F --> G[/sdd:test-plan]
     G --> H[/sdd:security-review]
     H --> I[/sdd:tasks]
-    I --> J[Implementation]
-    J --> K[/sdd:refactor]
-    K --> L[Done]
+    I --> J[/sdd:implement]
+    J --> K[Implementation Complete]
+    K --> L[/sdd:refactor]
+    L --> M[Done]
 
-    D --> M[Refine Requirements]
-    M --> C
+    D --> N[Refine Requirements]
+    N --> C
 
-    E --> N[Refine Design]
-    N --> E
+    E --> O[Refine Design]
+    O --> E
 
-    I --> O[Refine Tasks]
-    O --> I
+    I --> P[Refine Tasks]
+    P --> I
+
+    J --> Q[Execute Next Task]
+    Q --> J
 ```
 
 ### Phase Descriptions
@@ -154,7 +159,7 @@ graph TD
 6. **Testing Phase** - Define quality assurance approach
 7. **Security Phase** - Address security and compliance
 8. **Task Planning Phase** - Create implementation roadmap
-9. **Implementation Phase** - Build the feature
+9. **Implementation Phase** - Execute tasks one by one with `/sdd:implement`
 10. **Refinement Phase** - Improve documentation and processes
 
 ## Intelligent Cross-Phase Integration
@@ -332,6 +337,9 @@ docs/specs/{feature_name}/
 
 # 8. Create implementation tasks
 /sdd:tasks "user-profile-pictures"
+
+# 9. Execute implementation tasks one by one
+/sdd:implement "user-profile-pictures"
 ```
 
 ### Complex Feature Example
@@ -354,6 +362,20 @@ For complex features requiring extensive research:
 /sdd:security-review "real-time-collaboration"
 
 /sdd:tasks "real-time-collaboration"
+
+# Execute implementation tasks one by one
+/sdd:implement "real-time-collaboration"
+```
+
+### Refactoring Example
+
+For improving existing specifications with specific guidance:
+
+```bash
+# After implementation, add specific clarifications and improvements
+/sdd:refactor "real-time-collaboration" "Use Operational Transformation for conflict resolution, implement Redis pub/sub for scalability, add rate limiting for API endpoints, ensure GDPR compliance for user data"
+
+/sdd:refactor "user-profile-pictures" "Use AWS S3 for storage with CloudFront CDN, implement image optimization pipeline, add content moderation with AWS Rekognition, support WebP format for better performance"
 ```
 
 ## Troubleshooting
@@ -388,8 +410,17 @@ For complex features requiring extensive research:
 
 - Review existing spec examples in the workspace
 - Check validation reports for specific issues
-- Use refactor command to improve existing specs
+- Use refactor command to improve existing specs with specific guidance
 - Consult with team members for domain expertise
+
+### When to Use Refactor
+
+- **After implementation**: Add clarifications discovered during development
+- **Tool specification**: Specify exact frameworks, libraries, or services to use
+- **Process requirements**: Clarify implementation approaches or methodologies
+- **Integration needs**: Add requirements for connecting with existing systems
+- **Quality standards**: Include specific compliance or performance requirements
+- **Business rules**: Incorporate additional business logic or constraints
 
 ## Metrics and Success Criteria
 
