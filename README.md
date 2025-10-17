@@ -52,16 +52,10 @@ Complete methodology for feature development with specialized prompts for each p
 - [Feature Development](.github/prompts/feature.prompt.md) - Standard protocol for features/refactors
 - [Command Creation](.github/prompts/command-creator.prompt.md) - System command generation
 - [Diagnosis](.github/prompts/diagnose.prompt.md) - Problem analysis
-- [Documentation](.github/prompts/docs.prompt.md) - Documentation creation
+- [Documentation](.github/prompts/docs) - Documentation/Steering docs creation
 - [Execution](.github/prompts/execute.prompt.md) - Task execution
 - [Testing](.github/prompts/testing.prompt.md) - Testing strategies
 - [Retrospectives](.github/prompts/retrospective.prompt.md) - Project analysis
-
-## Quick Start
-
-1. **Fork this repository** as a template for your project
-2. **Copy the `.github/` folder** to your target repository
-3. **Customize instructions** for your specific needs
 
 ### Development with SDD
 
