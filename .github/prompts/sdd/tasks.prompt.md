@@ -171,7 +171,7 @@ After creating the initial tasks document, you MUST ask the user "Do the tasks l
 - This workflow is ONLY for creating design and planning artifacts. The actual implementation of the feature should be done through a separate workflow
 - You MUST NOT attempt to implement the feature as part of this workflow
 - You MUST clearly communicate to the user that this workflow is complete once the design and planning artifacts are created
-- You MUST inform the user that they can begin executing tasks by opening the tasks.md file, and clicking "Start task" next to task items
+- You MUST inform the user that they can begin executing tasks by using the `/sdd:implement "feature-name"` command to execute tasks one by one
 
 ## Output
 
