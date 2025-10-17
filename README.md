@@ -41,7 +41,8 @@ Complete methodology for feature development with specialized prompts for each p
 - `/sdd:test-plan` - Comprehensive testing strategies
 - `/sdd:security-review` - Security analysis and compliance
 - `/sdd:tasks` - Actionable implementation tasks
-- `/sdd:refactor` - Existing specification improvements
+- `/sdd:implement` - Execute and track individual implementation tasks
+- `/sdd:refactor` - Systematically refactor core spec documents, then guide user through sequential updates of all subsequent documents using specific SDD commands for clean, consistent workflow
 
 ### [Chat Modes](.github/chatmodes/)
 
@@ -70,7 +71,103 @@ For any new feature:
 /sdd:test-plan "feature-name"
 /sdd:security-review "feature-name"
 /sdd:tasks "feature-name"
+/sdd:implement "feature-name"  # Execute tasks one by one
 ```
+
+**Optional: Post-implementation refinement**
+
+```bash
+/sdd:refactor "feature-name" "specific-refactoring-guidance"
+# Examples:
+/sdd:refactor "user-authentication" "Use Redis for sessions, implement JWT refresh, add rate limiting"
+/sdd:refactor "payment-system" "Integrate Stripe API v3, add webhook retry logic, use database transactions"
+/sdd:refactor "dashboard" "Use Chart.js for visualizations, implement WebSocket updates, cache expensive queries"
+```
+
+_Note: The refactor command now follows a systematic approach - it first improves core documents (research and requirements), then guides you through sequential updates of all subsequent documents using specific SDD commands for clean, consistent workflow._
+
+**What to include in refactoring guidance:**
+
+- **Tools & Frameworks**: "Use Redis for caching, implement with AWS Lambda"
+- **Processes**: "Apply TDD methodology, use feature flags for rollout"
+- **Business Rules**: "Support multi-tenant architecture, implement GDPR compliance"
+- **Integrations**: "Connect to existing auth service, use REST APIs with OAuth2"
+- **Quality Standards**: "Ensure WCAG accessibility, implement SOC2 controls"
+
+**After tasks are approved, execute them one by one:**
+
+```bash
+/sdd:implement "feature-name"  # Executes next pending task and tracks progress
+```
+
+````
+
+## Prerequisites for Effective SDD
+
+### Project Knowledge Foundation
+
+**For SDD to produce optimal results, it is HIGHLY RECOMMENDED to have a deep understanding of the project before starting.** AI agents need complete context about:
+
+- Existing project architecture
+- Code patterns and conventions
+- Technologies and frameworks used
+- Data structures and models
+- Non-functional requirements (security, performance, scalability)
+
+### Steering Documents - Fundamental Base
+
+**BEFORE starting any SDD workflow, steering documents for the project MUST be generated and kept updated.** These documents provide:
+
+- **Project Standards**: Code conventions, architectural patterns, quality standards
+- **Coding Conventions**: Style guides, naming conventions, file structure
+- **Architectural Patterns**: Design patterns used, architectural principles
+- **Team Norms**: Team processes, documentation standards, collaboration practices
+
+### Command for Steering Documents
+
+```bash
+/docs:create-steering [type]
+````
+
+**Run this command at project start and keep steering documents updated** whenever project standards change, new technologies are incorporated, or team practices evolve.
+
+#### Steering Document Types
+
+The `/docs:create-steering` command accepts an optional `type` parameter to generate specific types of steering documents. It is **HIGHLY RECOMMENDED** to have at minimum the following three types:
+
+- **`product`**: Product vision, business requirements, user personas, and market context
+- **`technology`**: Technology stack, frameworks, tools, and technical standards
+- **`structure`**: Team organization, development processes, and project structure
+
+##### Examples of Steering Document Types
+
+```bash
+# Generate all recommended steering documents
+/docs:create-steering product
+/docs:create-steering technology
+/docs:create-steering structure
+
+# Generate additional specialized documents
+/docs:create-steering security      # Security policies and standards
+/docs:create-steering quality       # Quality assurance and testing standards
+/docs:create-steering deployment    # Deployment and DevOps practices
+/docs:create-steering compliance    # Regulatory and compliance requirements
+/docs:create-steering architecture  # Architectural principles and patterns
+/docs:create-steering testing       # Testing strategies and methodologies
+```
+
+**Additional steering document types can be created as needed** to document specific aspects of your project, team, or organization. Each type creates a focused document that provides essential context for AI agents to understand and work effectively within your project's ecosystem.
+
+### Why Steering Documents Are Critical
+
+Without updated steering documents:
+
+- Specifications may not align with project standards
+- Designs may use inconsistent patterns
+- Estimates may be inaccurate
+- Generated code quality may be inferior
+
+**Steering documents are the foundation that guarantees SDD produces consistent, high-quality results aligned with the project vision.**
 
 ## Directory Structure
 
@@ -126,6 +223,7 @@ For any new feature:
 /sdd:test-plan "user-management-api"
 /sdd:security-review "user-management-api"
 /sdd:tasks "user-management-api"
+/sdd:implement "user-management-api"
 ```
 
 ### Component Refactor
@@ -139,6 +237,7 @@ For any new feature:
 /sdd:test-plan "auth-refactor"
 /sdd:security-review "auth-refactor"
 /sdd:tasks "auth-refactor"
+/sdd:implement "auth-refactor"
 ```
 
 ## Contributing
