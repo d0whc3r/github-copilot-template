@@ -123,17 +123,17 @@ Spec-driven development is an iterative methodology that transforms rough featur
 
 ```mermaid
 graph TD
-    A[Feature Idea] --> B[/sdd:research]
-    B --> C[/sdd:spec]
-    C --> D[/sdd:validate]
-    D --> E[/sdd:design]
-    E --> F[/sdd:estimate]
-    F --> G[/sdd:test-plan]
-    G --> H[/sdd:security-review]
-    H --> I[/sdd:tasks]
-    I --> J[/sdd:implement]
+    A[Feature Idea] --> B["/sdd:research"]
+    B --> C["/sdd:spec"]
+    C --> D["/sdd:validate"]
+    D --> E["/sdd:design"]
+    E --> F["/sdd:estimate"]
+    F --> G["/sdd:test-plan"]
+    G --> H["/sdd:security-review"]
+    H --> I["/sdd:tasks"]
+    I --> J["/sdd:implement"]
     J --> K[Implementation Complete]
-    K --> L[/sdd:refactor]
+    K --> L["/sdd:refactor"]
     L --> M[Done]
 
     D --> N[Refine Requirements]
