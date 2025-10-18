@@ -50,13 +50,35 @@ Complete methodology for feature development with specialized prompts for each p
 
 ### [Specialized Prompts](.github/prompts/)
 
-- [Feature Development](.github/prompts/feature.prompt.md) - Standard protocol for features/refactors
-- [Command Creation](.github/prompts/command-creator.prompt.md) - System command generation
-- [Diagnosis](.github/prompts/diagnose.prompt.md) - Problem analysis
-- [Documentation](.github/prompts/docs) - Documentation/Steering docs creation
-- [Execution](.github/prompts/execute.prompt.md) - Task execution
-- [Testing](.github/prompts/testing.prompt.md) - Testing strategies
-- [Retrospectives](.github/prompts/retrospective.prompt.md) - Project analysis
+Domain-specific AI agent configurations for specialized development tasks. Each prompt contains detailed instructions, tools, and workflows optimized for specific types of development activities.
+
+#### Core Development Prompts
+
+- **[Feature Development](.github/prompts/feature.prompt.md)** - Standard protocol for implementing features and refactors with systematic analysis, planning, and execution
+- **[Execution](.github/prompts/execute.prompt.md)** - Task execution with autonomous code generation, testing, and verification
+- **[Testing](.github/prompts/testing.prompt.md)** - Comprehensive testing strategies including unit, integration, and end-to-end test planning
+
+#### Analysis & Problem-Solving Prompts
+
+- **[Diagnosis](.github/prompts/diagnose.prompt.md)** - Systematic problem analysis with root cause identification, impact assessment, and solution prioritization
+- **[Retrospectives](.github/prompts/retrospective.prompt.md)** - Project analysis and improvement identification with actionable recommendations
+
+#### Automation & Tooling Prompts
+
+- **[Command Creation](.github/prompts/command-creator.prompt.md)** - Automated generation of system commands, scripts, and automation workflows
+- **[Documentation](.github/prompts/docs)** - Intelligent documentation and steering document creation for project standards and guidelines
+
+#### Usage Guidelines
+
+**Select the appropriate specialized prompt based on your task type:**
+
+- Use **Feature Development** for new features or major refactors
+- Use **Diagnosis** when troubleshooting issues or analyzing problems
+- Use **Testing** when planning comprehensive test coverage
+- Use **Command Creation** for automation and scripting tasks
+- Use **Documentation** for creating or updating project standards
+
+Each prompt includes specific tools, validation steps, and quality gates appropriate to its domain.
 
 ### Development with SDD
 
